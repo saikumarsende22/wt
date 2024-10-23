@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation</title>
+    <script>
+        function val(){
+            var a = document.getElementById('name').value;
+            var c = document.getElementById('phone').value;
+            var e = document.getElementById('email').value;
+            var g = document.getElementById('pass').value;
+
+            var namePattern = /^[a-zA-Z ]+$/;
+            var phonePattern = /^[6-9][0-9]{9}$/;
+            var emailPattern = /^[a-zA-Z0-9_\-\.]+@[a-z]+\.[a-z]{2,3}$/;
+            var passwordPattern = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[_@#^&?$%!*.])[a-zA-Z\d_@$#^&?%!*.]{8,16}$/;
+
+            if(namePattern.test(a) && phonePattern.test(c) && emailPattern.test(e) && passwordPattern.test(g)) {
+                return true;
+            } else {
+                alert("Invalid information! Please enter valid information.");
+                return false;
+            }
+        }
+    </script>
+    <style>
+        .b {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background-image: url('https://www.bing.com/images/search?view=detailV2&ccid=jlZKoxfB&id=B1EF5172EA3331965052B7A25A89AE8719BA07C7&thid=OIP.jlZKoxfBr3VdIpCQph9TRwHaEK&mediaurl=https%3a%2f%2fwallpaperaccess.com%2ffull%2f4893798.jpg&exph=1080&expw=1920&q=login+background+images&simid=608044843212044651&FORM=IRPRST&ck=04599781CF919441FD4537CDB6F138C9&selectedIndex=13&itb=0'); /* Correct path */
+            background-size: cover;
+            background-position: center;
+            border-radius: 4px;
+            padding: 20px;
+            border: 5px solid #ccc;
+        }
+        label, input {
+            margin: 5px 0;
+        }
+        input {
+            padding: 5px;
+        }
+    </style>
+</head>
+<body style="background-color: aquamarine;">
+    <h2>Validations</h2>
+    <form class="b" action="login.html" onsubmit="return val()">
+        <label for="name">Name:</label>
+        <input type="text" id="name" placeholder="Enter your name" required><br><br>
+
+        <label for="phone">Phone number:</label>
+        <input type="tel" id="phone" placeholder="Enter your phone number" required><br><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" placeholder="Enter your email" required><br><br>
+
+        <label for="pass">Password:</label>
+        <input type="password" id="pass" placeholder="Enter your password" required><br><br>
+
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
